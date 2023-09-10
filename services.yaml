@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: get-server-interface
+spec:
+  selector:
+    app: get-server-interface
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: ClusterIP

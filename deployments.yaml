@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: get-server-interface-deployment
+  labels:
+    app: get-server-interface
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: get-server-interface
+  template:
+    metadata:
+      labels:
+        app: get-server-interface
+    spec:
+      containers:
+        - name: get-server-interface
+          image: itta/get-server-interface:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
